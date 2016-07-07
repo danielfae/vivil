@@ -12,7 +12,6 @@ app.listen((process.env.PORT || 3000));
 
 // Server frontpage
 app.get('/', function (req, res) {
-	//comentario de daniel
     res.render('index.html');
 });
 
