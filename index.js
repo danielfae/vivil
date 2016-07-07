@@ -11,11 +11,7 @@ app.engine('html', require('ejs').renderFile);
 
 // Server frontpage
 app.get('/', function (req, res) {
-<<<<<<< HEAD
-    res.render('index.html');
-=======
 	res.render('index.html');
->>>>>>> f664c84969c001ec27cc7106870cf4f8a1748b1f
 });
 
 // Facebook Webhook
