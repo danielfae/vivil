@@ -214,7 +214,7 @@ function sendProductsMessage(recipientId) {
 						},
 						{
 							title: "NLP Tier",
-							subtitle: "Natural Language Processing chatbot (Smart guy)",
+							subtitle: "Natural Language Processing chatbot",
 							item_url: "http://promocion.clinicaloyola.com/implantesdentales",               
 							image_url: "https://s3-sa-east-1.amazonaws.com/cannedhead.clinicaloyola/landing/junio/implantes_miniatura.jpg",
 							buttons: [
