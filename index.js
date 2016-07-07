@@ -106,19 +106,23 @@ function receivedPostback(event) {
 			// the text we received.
 			switch (payload){
 				case 'yes_interested':
-					sendCampaignsMessage(senderID);
+					sendProductsMessage(senderID);
 					break;
 
-				case 'yes_survey':
-					sendSurveyMessage(senderID);
+				case 'read_basic':
+					sendBasicTierMessage(senderID);
 					break;
 
-				case 'simple_farewell':
+				case 'read_plus':
+					sendPlusTierMessage(senderID);
+					break;
+
+				case 'read_nlp':
+					sendNaturalTierMessage(senderID);
+					break;
+
+				case 'farewell':
 					sendFarewellMessage(senderID);
-					break;
-
-				case 'thanks_farewell':
-					sendThanksMessage(senderID);
 					break;
 
 				default:
@@ -141,14 +145,14 @@ function sendInitialMessage(recipientId) {
 				type: "template",
 				payload: {
 					template_type: "button",
-					text: "Hola hola, apuesto a que estas interesado en nuestras promociones de este mes?",
+					text: "Hi, my name is Susana and Iam your automated assistant. Im guessing you are interested in our products?",
 					buttons:[{
 						type: "postback",
-						title: "Porsupuesto :)",
+						title: "Sure :)",
 						payload: "yes_interested"
 					},{
 						type: "postback",
-						title: "mmm... ahora no",
+						title: "mmm... not right now",
 						payload: "simple_farewell"
 					}]
 				}
@@ -163,7 +167,7 @@ function sendInitialMessage(recipientId) {
  * Send a Structured Message with Campaigns landings using the Send API.
  *
  */
-function sendCampaignsMessage(recipientId) {
+function sendProductsMessage(recipientId) {
 	var messageData = {
 		recipient: {
 			id: recipientId
@@ -175,65 +179,53 @@ function sendCampaignsMessage(recipientId) {
 					template_type: "generic",
 					elements: [
 						{
-							title: "Blefaroplastia",
-							subtitle: "Por tan sólo $1'780.000",
+							title: "Basic Tier",
+							subtitle: "Scripted generic chatBot",
 							item_url: "http://promocion.clinicaloyola.com.co/blefaroplastia",               
 							image_url: "https://s3-sa-east-1.amazonaws.com/cannedhead.clinicaloyola/landing/junio/blefaro_mobile_junio.jpg",
 							buttons: [
 								{
 									type: "web_url",
 									url: "http://promocion.clinicaloyola.com.co/blefaroplastia",
-									title: "Obtener Valoración"
+									title: "View on Web"
 								},{
 									type: "postback",
-									title: "Chevere, que más?",
-									payload: "yes_survey",
-								},{
-									type: "postback",
-									title: "Gracias, chao",
-									payload: "simple_farewell",
+									title: "Read Here",
+									payload: "read_basic",
 								}
 							],
 						}, 
 						{
-							title: "Abdominoplastia",
-							subtitle: "¿Ya estás lista para estas vacaciones?",
+							title: "Plus Tier",
+							subtitle: "Custom designed scripted chatbot",
 							item_url: "http://promocion.clinicaloyola.com/abdominoplastia",               
 							image_url: "https://s3-sa-east-1.amazonaws.com/cannedhead.clinicaloyola/landing/junio/abdo_mobile_junio.jpg",
 							buttons: [
 								{
 									type: "web_url",
 									url: "http://promocion.clinicaloyola.com/abdominoplastia",
-									title: "Obtener Valoración"
+									title: "View on Web"
 								},{
 									type: "postback",
-									title: "Chevere, que más?",
-									payload: "yes_survey",
-								},{
-									type: "postback",
-									title: "Gracias, chao",
-									payload: "simple_farewell",
+									title: "Read Here",
+									payload: "read_plus",
 								}
 							]
 						},
 						{
-							title: "Implantes Dentales",
-							subtitle: "Desde $990.000, Incluye provisional y aditamientos",
+							title: "NLP Tier",
+							subtitle: "Natural Language Processing chatbot (Smart guy)",
 							item_url: "http://promocion.clinicaloyola.com/implantesdentales",               
 							image_url: "https://s3-sa-east-1.amazonaws.com/cannedhead.clinicaloyola/landing/junio/implantes_miniatura.jpg",
 							buttons: [
 								{
 									type: "web_url",
 									url: "http://promocion.clinicaloyola.com/implantesdentales",
-									title: "Obtener Valoración"
+									title: "View on Web"
 								},{
 									type: "postback",
-									title: "Chevere, que más?",
-									payload: "yes_survey",
-								},{
-									type: "postback",
-									title: "Gracias, chao",
-									payload: "simple_farewell",
+									title: "Read Here",
+									payload: "read_nlp",
 								}
 							]
 						}
@@ -247,62 +239,7 @@ function sendCampaignsMessage(recipientId) {
 }
 
 /*
- * Send survey message using the Send API.
- *
- */
-function sendSurveyMessage(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "button",
-          text: "ehh... sólo me queda preguntarte, ¿que tipo de contenido preferirias ver en la página de Clinica Loyola?",
-          buttons:[
-            {
-              type: "postback",
-              title: "Tips de Belleza",
-              payload: "thanks_farewell"
-            },{
-              type: "postback",
-              title: "Tips Post-operatorio",
-              payload: "thanks_farewell"
-            },{
-              type: "postback",
-              title: "Dietas",
-              payload: "thanks_farewell"
-            }
-          ]
-        } // close payload
-      } // close attachment
-    } // close message
-  };  
-
-  callSendAPI(messageData);
-}
-
-/*
- * Send a thankfull farewell message using the Send API.
- *
- */
-function sendThanksMessage(recipientId, messageText) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: 'Lo tendremos en cuenta, gracias por tu tiempo y atención :). Recuerda, si deseas ser contactado por un agente puedes inscribir tus datos en una de nuestras promociones.'
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-/*
- * Send a simple farewell message using the Send API.
+ * Send a farewell message using the Send API.
  *
  */
 function sendFarewellMessage(recipientId, messageText) {
@@ -311,7 +248,58 @@ function sendFarewellMessage(recipientId, messageText) {
       id: recipientId
     },
     message: {
-      text: 'Estamos para servirte, gracias por tu tiempo y atención :). Recuerda, si deseas ser contactado por un agente puedes inscribir tus datos en una de nuestras promociones.'
+      text: 'Thanks for your attention :). Bye!'
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+/*
+ * Send basic plan message using the Send API.
+ *
+ */
+function sendBasicTierMessage(recipientId, messageText) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: 'The Basic Tier consist of a generic scripted bot. Much like this one, to generate leads and/or present your products to your facebook followers.'
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+/*
+ * Send plus plan message using the Send API.
+ *
+ */
+function sendPlusTierMessage(recipientId, messageText) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: 'The Plus Tier offers an scripted bot. But in this case the script is customized to your needs and requirements.'
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+/*
+ * Send natural plan message using the Send API.
+ *
+ */
+function sendNaturalTierMessage(recipientId, messageText) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: 'The NLP Tier is to some extend also an scripted bot. The difference relies on the fact that this kind of bot can understand commands that exhibit natural language features, and is not bounded to exact commands or buttons.'
     }
   };
 
