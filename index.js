@@ -152,8 +152,8 @@ function sendInitialMessage(recipientId) {
 						payload: "yes_interested"
 					},{
 						type: "postback",
-						title: "mmm... not right now",
-						payload: "simple_farewell"
+						title: "mmm... nop",
+						payload: "farewell"
 					}]
 				}
 			}
@@ -265,7 +265,7 @@ function sendBasicTierMessage(recipientId, messageText) {
       id: recipientId
     },
     message: {
-      text: 'The Basic Tier consist of a generic scripted bot. Much like this one, to generate leads and/or present your products to your facebook followers.'
+      text: 'The Basic Tier consist of a generic scripted bot. Much like this one, to generate leads and/or introduce your products to your facebook followers.'
     }
   };
 
@@ -282,7 +282,7 @@ function sendPlusTierMessage(recipientId, messageText) {
       id: recipientId
     },
     message: {
-      text: 'The Plus Tier offers an scripted bot. But in this case the script is customized to your needs and requirements.'
+      text: 'The Plus Tier offers an scripted bot. The difference though, is that in this case the script is customized to your needs and requirements.'
     }
   };
 
@@ -299,7 +299,7 @@ function sendNaturalTierMessage(recipientId, messageText) {
       id: recipientId
     },
     message: {
-      text: 'The NLP Tier is to some extend also an scripted bot. The difference relies on the fact that this kind of bot can understand commands that exhibit natural language features, and is not bounded to exact commands or buttons.'
+      text: 'The NLP Tier is to some extend also an scripted bot. The difference relies on the fact that this kind of bot can understand commands that exhibit natural language features, and is not bounded to exact commands and/or buttons.'
     }
   };
 
