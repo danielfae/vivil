@@ -28,12 +28,14 @@ $(document).ready(function() {
 	$('#featuresSlider').flickity({
 		cellAlign: 'left',
 		contain: true,
+		autoPlay: 11500,
 		prevNextButtons: false
 	});
 
 	$('#showcaseSlider').flickity({
 		cellAlign: 'left',
 		contain: true,
+		autoPlay: true,
 		prevNextButtons: false,
 		imagesLoaded: true
 	});
