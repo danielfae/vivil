@@ -145,14 +145,14 @@ function sendInitialMessage(recipientId) {
 				type: "template",
 				payload: {
 					template_type: "button",
-					text: "Hi, my name is Susana and Iam your automated assistant. Im guessing you are interested in our products?",
+					text: "Hi, my name is Susana and Iam your automated assistant. Im guessing you are interested in our products. Is that right?",
 					buttons:[{
 						type: "postback",
 						title: "Sure :)",
 						payload: "yes_interested"
 					},{
 						type: "postback",
-						title: "mmm... nop",
+						title: "mmm... not now",
 						payload: "farewell"
 					}]
 				}
