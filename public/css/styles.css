@@ -580,7 +580,11 @@ ViVil
 ========================================================================== */
 .logo {
     position:relative;
-    width: 50%;
+    width: 40%;
+}
+
+.imgpad{
+    padding-top: 10%;
 }
 
 .inlogo{
