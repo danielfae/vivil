@@ -475,20 +475,31 @@ Buttons
     background-color: #fff;
     color: #4b98a9;
     font-size: 16px;
+    border-color: #3462BF; background-size: 23px 23px;box-shadow: 0px 1px 1px 0px rgba(255, 255, 255, 0.5) inset, 0 0 2px 0 black;
 }
 .use-btn:hover, .use-btn:focus {
     background-color: #73d0da;
     color: #fff;
     text-decoration: none;
 }
-.learn-btn, .download-btn {
+.learn-btn {
     display: inline-block;
-    padding: 18px 46px;
+    padding: 18px 46px 18px 70px;
     border: 2px solid #fff;
     border-radius: 3px;
     color: #fff;
     font-size: 16px;
 }
+
+.download-btn {
+    display: inline-block;
+    padding: 18px 18px 18px 18px;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+}
+
 .learn-btn:hover, .download-btn:hover, .learn-btn:focus, .download-btn:focus {
     border-color: #73d0da;
     color: #73d0da;
@@ -504,7 +515,7 @@ Buttons
     margin-left: 5px
 }
 .showcase .download-btn {
-    margin-top: 50px
+    margin-top: 10px
 }
 .download .download-btn {
     margin-top: 25px
@@ -587,8 +598,48 @@ ViVil
     padding-top: 50px;
 }
 
+.imgpad img{
+    margin: 0 auto;
+}
+
 .inlogo{
     width: 50px;
+    display: inline;
+
+}
+
+.botcases ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+.botcases li {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  
+}
+
+.botcases li:last-child {
+  border: none;
+}
+
+.botcases li a {
+  text-decoration: none;
+  color: #f6f6f6;
+
+  -webkit-transition: padding-left 0.3s ease;
+  -moz-transition: padding-left 0.3s ease;
+  -o-transition: padding-left 0.3s ease;
+  -ms-transition: padding-left 0.3s ease;
+  transition: padding-left 0.3s ease;
+  display: block;
+  width: 250px;
+}
+
+.botcases li a:hover {
+  text-decoration: underline;
+  padding-left: 10px;
 }
 
 /* ==========================================================================
@@ -728,13 +779,14 @@ Features Slider
 Features List
 ========================================================================== */
 .features-list {
-    padding: 130px 0
+    padding: 70px 0 30px 0;
 }
 .features-list h1 {
     margin: 0 0 10px 0;
     padding: 0;
     color: #24374b;
     font-size: 20px;
+    
 }
 .features-list p {
     margin-bottom: 20px;
@@ -756,6 +808,7 @@ Features List
     text-align: center;
     font-size: 25px;
     line-height: 90px;
+
 }
 .feature-icon i {
     color: #4e9ba3
@@ -765,7 +818,7 @@ Features List
 Blockquote
 ========================================================================== */
 blockquote {
-    margin: 40px 0 0;
+    margin: 20px 0 30px 0;
     padding: 0;
     border: none;
 }
@@ -844,7 +897,7 @@ Showcase
 Screenshots Intro
 ========================================================================== */
 .screenshots-intro {
-    padding: 170px 0 100px 0;
+    padding: 70px 0 60px 0;
     background-color: #f6f7f9;
 }
 .screenshots-intro h1 {
@@ -948,7 +1001,7 @@ Screenshots
 Download Now
 ========================================================================== */
 .download {
-    padding: 120px 0;
+    padding: 40px 0  30px ;
     background-color: #3f6184;
 }
 .download h1 {
