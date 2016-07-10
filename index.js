@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
+var request = require('nodemon');
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -13,7 +14,9 @@ app.engine('html', require('ejs').renderFile);
 app.get('/', function (req, res) {
 	res.render('index.html');
 });
-
+app.get('/cases', function (req, res) {
+	res.render('cases.html');
+});
 // Facebook Webhook
 app.get('/webhook', function (req, res) {
 	if (req.query['hub.verify_token'] === 'testbot_verify_token') {
