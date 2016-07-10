@@ -594,6 +594,11 @@ ViVil
     width: 40%;
 }
 
+.menutitle {
+    margin-top: 70px;
+    color: #f6f6f6;
+}
+
 .imgpad{
     padding-top: 50px;
 }
